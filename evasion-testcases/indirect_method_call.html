@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indirect Function Call</title>
+  <script>
+    // Define a function
+    function greet() {
+      console.log("Hello!");
+    }
+
+    // Store the function name in a variable
+    var funcName = "greet";
+
+    // Indirectly call the function
+    window[funcName](); // Outputs: Hello!
+  </script>
+</head>
+
+<body>
+  <h1>Indirect Function Call</h1>
+  <p>Check the console for output.</p>
+</body>
+
+</html>

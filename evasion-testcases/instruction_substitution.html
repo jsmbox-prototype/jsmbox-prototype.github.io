@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addition Functions</title>
+  <script>
+    // Original addition function
+    function add(a, b) {
+      return a + b;
+    }
+    // Obfuscated addition function
+    function add_obfuscated(x, y) {
+      return x - (-y);
+    }
+
+    // Function to call original and obfuscated functions
+    function callFunctions() {
+      // Calling the original function
+      console.log("Original function result:", add(5, 3));  // Outputs: 8
+      // Calling the obfuscated function
+      console.log("Obfuscated function result:", add_obfuscated(5, 3));  // Outputs: 8
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Addition Functions</h1>
+  <button onclick="callFunctions()">Call Functions</button>
+</body>
+
+</html>

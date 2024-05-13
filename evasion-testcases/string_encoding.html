@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decoded String and Code</title>
+  <style>
+    code {
+      display: block;
+      white-space: pre-wrap;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Decoded String and Code</h1>
+  <h2>Decoded String:</h2>
+  <p id="decoded"></p>
+  <h2>JavaScript Code:</h2>
+  <code id="jsCode">
+    const encodedString = "%48%65%6C%6C%6F%2C%20%77%6F%72%6C%64%21";
+    const decodedString = unescape(encodedString);
+    console.log(decodedString); // Output: "Hello, world!"
+  </code>
+
+  <script>
+    const encodedString = "%48%65%6C%6C%6F%2C%20%77%6F%72%6C%64%21";
+    const decodedString = unescape(encodedString);
+    document.getElementById('decoded').innerText = decodedString;
+
+    // Highlight the JavaScript code
+    const codeElement = document.getElementById('jsCode');
+    hljs.highlightBlock(codeElement);
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+
+</body>
+
+</html>

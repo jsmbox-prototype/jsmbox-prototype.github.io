@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate Sum</title>
+  <script>
+    function calculateSum(a, b) {
+      // Dead code injection
+      if (false) {
+        console.log("This code will never execute.");
+      }
+      // Actual code
+      return a + b;
+    }
+
+    // Function to display result
+    function displayResult() {
+      const num1 = 5;
+      const num2 = 3;
+      const result = calculateSum(num1, num2);
+      document.getElementById('num1').innerText = 'Number 1: ' + num1;
+      document.getElementById('num2').innerText = 'Number 2: ' + num2;
+      document.getElementById('result').innerText = 'Result: ' + result;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Calculate Sum</h1>
+  <button onclick="displayResult()">Calculate</button>
+  <div id="parameters">
+    <p id="num1">Number 1: </p>
+    <p id="num2">Number 2: </p>
+  </div>
+  <div id="results">
+    <p id="result">Result: </p>
+  </div>
+</body>
+
+</html>
