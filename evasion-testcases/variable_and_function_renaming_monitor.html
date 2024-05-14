@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculate Area</title>
+  <script>
+    // JavaScript functions
+    function calculateArea(radius) {
+      const PI = 3.141592653589793;
+      return PI * radius * radius;
+    }
+
+    function a(b) {
+      const c = 3.141592653589793;
+      return c * b * b;
+    }
+
+    // Function to display results
+    function displayResults() {
+      const radius = 3;
+      const area1 = calculateArea(radius);
+      const area2 = a(radius);
+      document.getElementById('result1').innerText = 'Area (calculateArea): ' + area1;
+      document.getElementById('result2').innerText = 'Area (a): ' + area2;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Area Calculation</h1>
+  <button onclick="displayResults()">Calculate Area for Radius = 3</button>
+  <div id="results">
+    <p id="result1">Area (calculateArea): </p>
+    <p id="result2">Area (a): </p>
+  </div>
+</body>
+
+</html>
