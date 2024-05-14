@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Numbers</title>
+  <script>
+    // JavaScript functions
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    // Function to display results
+    function displayResults() {
+      const a = 4;
+      const b = 6;
+      const resultOriginal = addNumbers(a, b);
+      const resultCompressed = addNumbersCompressed(a, b);
+      document.getElementById('resultOriginal').innerText = 'Result (Original): ' + resultOriginal;
+      document.getElementById('resultCompressed').innerText = 'Result (Compressed): ' + resultCompressed;
+    }
+
+    // Compressed function
+    function addNumbersCompressed(a, b) { return a + b; }
+  </script>
+</head>
+
+<body>
+  <h1>Add Numbers</h1>
+  <button onclick="displayResults()">Calculate with a=4, b=6</button>
+  <div id="results">
+    <p id="resultOriginal">Result (Original): </p>
+    <p id="resultCompressed">Result (Compressed): </p>
+  </div>
+
+  <script>
+    // Call displayResults function when the page loads
+    window.onload = displayResults;
+  </script>
+</body>
+
+</html>
