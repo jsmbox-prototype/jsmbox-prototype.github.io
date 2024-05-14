@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Even Number Checker</title>
+  <script>
+    // Original code
+    function isEvenOriginal(num) {
+      if (num % 2 === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    // Transformed code
+    function isEvenTransformed(a) {
+      return 0 === a % 2;
+    }
+
+    // Function to display results
+    function displayResults() {
+      const num = document.getElementById('numberInput').value;
+      const resultOriginal = isEvenOriginal(num);
+      const resultTransformed = isEvenTransformed(num);
+      document.getElementById('resultOriginal').innerText = 'Result (Original): ' + resultOriginal;
+      document.getElementById('resultTransformed').innerText = 'Result (Transformed): ' + resultTransformed;
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Even Number Checker</h1>
+  <label for="numberInput">Enter a number:</label>
+  <input type="number" id="numberInput">
+  <button onclick="displayResults()">Check</button>
+  <div id="results">
+    <p id="resultOriginal">Result (Original): </p>
+    <p id="resultTransformed">Result (Transformed): </p>
+  </div>
+</body>
+
+</html>
