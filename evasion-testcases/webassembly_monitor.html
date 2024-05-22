@@ -5,6 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WebAssembly Demo</title>
+  <script>
+    original_alert=window.alert;
+    window.alert=function(){
+      console.log('alert is monitor');
+      var object = this;
+      var orgArgs = arguments;
+      original_alert.apply(object, orgArgs);      
+    }
+      
+  </script>
 </head>
 
 <body>
