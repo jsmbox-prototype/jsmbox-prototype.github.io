@@ -8,10 +8,10 @@
   <script>
     original_alert=window.alert;
     window.alert=function(){
-      console.log('alert is monitor');
+      console.log('alert is monitor. Supressed!');
       var object = this;
       var orgArgs = arguments;
-      original_alert.apply(object, orgArgs);      
+      //original_alert.apply(object, orgArgs);      
     }
       
   </script>
