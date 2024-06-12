@@ -9,15 +9,17 @@
     // Original code
     function isEvenOriginal(num) {
       if (num % 2 === 0) {
+        alert(`${num} is Even!`);
         return true;
       } else {
+        alert(`${num} is Odd!`);
         return false;
       }
     }
 
     // Transformed code
     function isEvenTransformed(a) {
-      return 0 === a % 2;
+      return 0 === a % 2 ? alert(`${num} is Even!`) : alert(`${num} is Odd!`);
     }
 
     // Function to display results
