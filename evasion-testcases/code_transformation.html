@@ -9,17 +9,18 @@
     // Original code
     function isEvenOriginal(num) {
       if (num % 2 === 0) {
-        alert(`${num} is Even!`);
+        alert(`${num} is Even(Original Function)!`);
         return true;
       } else {
-        alert(`${num} is Odd!`);
+        alert(`${num} is Odd(Original Function)!`);
         return false;
       }
     }
 
     // Transformed code
     function isEvenTransformed(a) {
-      return (0 === a % 2) ? alert(`${a} is Even!`) : alert(`${a} is Odd!`);
+      (0 === a % 2) ? alert(`${a} is Even!`) : alert(`${a} is Odd!`);
+      return (0 === a % 2) ;
     }
 
     // Function to display results
