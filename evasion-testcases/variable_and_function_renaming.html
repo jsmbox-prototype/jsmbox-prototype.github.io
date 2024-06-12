@@ -6,13 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculate Area</title>
   <script>
+    const showAlert = window.alert;
     // JavaScript functions
     function calculateArea(radius) {
+      showAlert('This alert is called through a renamed alert() function, named showAlert()')
       const PI = 3.141592653589793;
       return PI * radius * radius;
     }
 
     function a(b) {
+      showAlert('This alert is called through a renamed alert() function, named showAlert()')
       const c = 3.141592653589793;
       return c * b * b;
     }
