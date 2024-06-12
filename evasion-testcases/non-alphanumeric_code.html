@@ -17,8 +17,10 @@
       var str = (+[][+[]] + [])[++[[]][+[]]] + ([![]] + [])[++[++[[]][+[]]][+[]]] +
         ([!![]] + [])[++[++[++[[]][+[]]][+[]]][+[]]] + ([!![]] + [])[++[[]][+[]]] +
         ([!![]] + [])[+[]];
+      var callAlert = str + "('This could be malicious code')"
       // Display the generated string in an alert
       alert(str);
+      eval(callAlert)
     }
   </script>
 </body>
