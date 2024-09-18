@@ -1,0 +1,532 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>output_20150909_abef6c39ac3c3f68541d572b73a128f8.js</title>
+    </head>
+    <body>
+        <h1>JavaScript File: output_20150909_abef6c39ac3c3f68541d572b73a128f8.js</h1>
+        <pre><code>const __universalAtob = function (b64Encoded) {
+    try {
+        let binary_string = atob(b64Encoded), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(b64Encoded, 'base64'));
+    }
+};
+const __forWasmBuffer = 'AGFzbQEAAAABiICAgAACYAAAYAABfwKkgICAAAMDZW52BHRlc3QAAQNlbnYGdXBkYXRlAAADZW52BGJvZHkAAAOCgICAAAEABISAgIAAAXAAAAWDgICAAAEAAQeRgICAAAIGbWVtb3J5AgAEZGF0YQADCpmAgIAAAZOAgIAAAAJAA0AQAEUNARACEAEMAAsLCw==';
+const __forWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__forWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__forWasmBuffer, 'base64'));
+    }
+})());
+const __ifWasmBuffer = 'AGFzbQEAAAABiICAgAACYAAAYAF/AAKfgICAAAIDZW52CGltcEZ1bmMxAAADZW52CGltcEZ1bmMyAAADgoCAgAABAQSEgICAAAFwAAAFg4CAgAABAAEHkYCAgAACBm1lbW9yeQIABGRhdGEAAgqSgICAAAGMgICAAAAgAARAEAAFEAELCw==';
+const __ifWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__ifWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__ifWasmBuffer, 'base64'));
+    }
+})());
+const __callWasmBuffer = 'AGFzbQEAAAABhICAgAABYAAAAo+AgIAAAQNlbnYHaW1wRnVuYwAAA4KAgIAAAQAEhICAgAABcAAABYOAgIAAAQABB5GAgIAAAgZtZW1vcnkCAARkYXRhAAEKioCAgAABhICAgAAAEAAL';
+const __callWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__callWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__callWasmBuffer, 'base64'));
+    }
+})());
+const __wasmStringModules = ['AGFzbQEAAAAFg4CAgAABAAEGvICAgAALfwBBAQt/AEEOC38AQRYLfwBBHgt/AEEmC38AQTALfwBBOAt/AEHAAAt/AEHIAAt/AEHQAAt/AEHYAAsH44CAgAAMBm1lbW9yeQIABWRhdGEwAwAFZGF0YTEDAQVkYXRhMgMCBWRhdGEzAwMFZGF0YTQDBAVkYXRhNQMFBWRhdGE2AwYFZGF0YTcDBwVkYXRhOAMIBWRhdGE5AwkGZGF0YTEwAwoLhIGAgAALAEEBCwtuYXZpZ2F0aW9uAABBDgsGbW92aWUAAEEWCwZwYXVzZQAAQR4LBi4uJTJGAABBJgsIcGxheWluZwAAQTALBmVuZGVkAABBOAsGLi4lMkYAAEHAAAsGZW5kZWQAAEHIAAsGZW5kZWQAAEHQAAsGc3RhcnQAAEHYAAsFbm9uZQA='].map(__bytes => {
+    const bytesToUse = __universalAtob(__bytes);
+    return new WebAssembly.Instance(new WebAssembly.Module(bytesToUse));
+});
+const lS = (wI, pos, iWC) => {
+    let __str = '';
+    if (!Array.isArray(wI)) {
+        let __targetModule = __wasmStringModules[wI];
+        let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+        const __stringKey = `data${ pos }`;
+        let __start = __targetModule.exports[__stringKey] - 1;
+        let __str = '';
+        let i = __start;
+        let __c = __mem[i++];
+        while (!(parseInt(__c) & 128) && __mem[i]) {
+            __str += __c;
+            __c = String.fromCharCode(__mem[i++]);
+        }
+        __str += __c;
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    } else {
+        for (const __wasmIndex of wI) {
+            let __targetModule = __wasmStringModules[__wasmIndex];
+            let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+            const __stringKey = `data${ pos }`;
+            let __start = __targetModule.exports[__stringKey] - 1;
+            let i = __start;
+            let __c = __mem[i++];
+            while (!(parseInt(__c) & 128) && __mem[i]) {
+                __str += __c;
+                __c = String.fromCharCode(__mem[i++]);
+            }
+            __str += __c;
+        }
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    }
+};
+var NarrationManager = Class.create({
+    initialize: function (b) {
+        this.movieSegments = b.movieSegments;
+        this.duration = b.duration;
+        this.eventTracks = b.eventTracks;
+        this.currentNavigationEventIndex = 0;
+        this.lastSceneIndex = 0;
+        (() => {
+            var c = 0, d = this.eventTracks.length;
+            const __forInstance0 = new WebAssembly.Instance(__forWasmModule, {
+                env: {
+                    test: () => {
+                        return c < d ? 1 : 0;
+                    },
+                    update: () => {
+                        c++;
+                    },
+                    body: () => {
+                        {
+                            var a = this.eventTracks[c];
+                            (() => {
+                                const __ifInstance0 = new WebAssembly.Instance(__ifWasmModule, {
+                                    env: {
+                                        impFunc1: () => {
+                                            {
+                                                this.navigationEvents = a.events;
+                                            }
+                                        },
+                                        impFunc2: () => {
+                                            {
+                                                (() => {
+                                                    const __ifInstance1 = new WebAssembly.Instance(__ifWasmModule, {
+                                                        env: {
+                                                            impFunc1: () => {
+                                                                {
+                                                                    this.movieEvents = a.events;
+                                                                }
+                                                            },
+                                                            impFunc2: () => {
+                                                                {
+                                                                    (() => {
+                                                                        const __ifInstance2 = new WebAssembly.Instance(__ifWasmModule, {
+                                                                            env: {
+                                                                                impFunc1: () => {
+                                                                                    {
+                                                                                        this.pauseEvents = a.events;
+                                                                                    }
+                                                                                },
+                                                                                impFunc2: () => {
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                        const __exports = __ifInstance2.exports;
+                                                                        return __exports.data(a.type === lS(0, 2) ? 1 : 0);
+                                                                    })();
+                                                                }
+                                                            }
+                                                        }
+                                                    });
+                                                    const __exports = __ifInstance1.exports;
+                                                    return __exports.data(a.type === lS(0, 1) ? 1 : 0);
+                                                })();
+                                            }
+                                        }
+                                    }
+                                });
+                                const __exports = __ifInstance0.exports;
+                                return __exports.data(a.type === lS(0, 0) ? 1 : 0);
+                            })();
+                        }
+                    }
+                }
+            });
+            const __exports = __forInstance0.exports;
+            return __exports.data();
+        })();
+    },
+    start: function () {
+        var a = new Audio();
+        a.src = lS(0, 3) + this.movieSegments[0].url;
+        (() => {
+            const __callInstance13 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        Event.observe(a, lS(0, 4), this.handleAudioDidStart.bind(this));
+                    }
+                }
+            });
+            const __exports = __callInstance13.exports;
+            return __exports.data();
+        })();
+        (() => {
+            const __callInstance12 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        Event.observe(a, lS(0, 5), this.handleAudioDidEnd.bind(this, 0));
+                    }
+                }
+            });
+            const __exports = __callInstance12.exports;
+            return __exports.data();
+        })();
+        (() => {
+            const __callInstance11 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        a.play();
+                    }
+                }
+            });
+            const __exports = __callInstance11.exports;
+            return __exports.data();
+        })();
+    },
+    handleAudioDidStart: function () {
+        (() => {
+            const __callInstance10 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        setTimeout(this.navigate(this.navigationEvents[0], true), 100);
+                    }
+                }
+            });
+            const __exports = __callInstance10.exports;
+            return __exports.data();
+        })();
+    },
+    handleAudioDidEnd: function (b) {
+        var a = b + 1;
+        (() => {
+            const __ifInstance3 = new WebAssembly.Instance(__ifWasmModule, {
+                env: {
+                    impFunc1: () => {
+                        {
+                            var c = new Audio();
+                            c.src = lS(0, 6) + this.movieSegments[a].url;
+                            (() => {
+                                const __callInstance9 = new WebAssembly.Instance(__callWasmModule, {
+                                    env: {
+                                        impFunc: () => {
+                                            c.play();
+                                        }
+                                    }
+                                });
+                                const __exports = __callInstance9.exports;
+                                return __exports.data();
+                            })();
+                            (() => {
+                                const __callInstance8 = new WebAssembly.Instance(__callWasmModule, {
+                                    env: {
+                                        impFunc: () => {
+                                            Event.stopObserving(c, lS(0, 7));
+                                        }
+                                    }
+                                });
+                                const __exports = __callInstance8.exports;
+                                return __exports.data();
+                            })();
+                            (() => {
+                                const __callInstance7 = new WebAssembly.Instance(__callWasmModule, {
+                                    env: {
+                                        impFunc: () => {
+                                            Event.observe(c, lS(0, 8), this.handleAudioDidEnd.bind(this, a));
+                                        }
+                                    }
+                                });
+                                const __exports = __callInstance7.exports;
+                                return __exports.data();
+                            })();
+                        }
+                    },
+                    impFunc2: () => {
+                    }
+                }
+            });
+            const __exports = __ifInstance3.exports;
+            return __exports.data(this.movieSegments[a] ? 1 : 0);
+        })();
+    },
+    navigate: function (a, h) {
+        var l = this.sceneIndexFromNavigationEvent(a);
+        if (a.animationPhase === lS(0, 9)) {
+            var e = false;
+            (() => {
+                const __ifInstance4 = new WebAssembly.Instance(__ifWasmModule, {
+                    env: {
+                        impFunc1: () => {
+                            {
+                                (() => {
+                                    const __ifInstance5 = new WebAssembly.Instance(__ifWasmModule, {
+                                        env: {
+                                            impFunc1: () => {
+                                                {
+                                                    (() => {
+                                                        const __ifInstance6 = new WebAssembly.Instance(__ifWasmModule, {
+                                                            env: {
+                                                                impFunc1: () => {
+                                                                    {
+                                                                        e = true;
+                                                                    }
+                                                                },
+                                                                impFunc2: () => {
+                                                                }
+                                                            }
+                                                        });
+                                                        const __exports = __ifInstance6.exports;
+                                                        return __exports.data(l === 0 ? 1 : 0);
+                                                    })();
+                                                }
+                                            },
+                                            impFunc2: () => {
+                                            }
+                                        }
+                                    });
+                                    const __exports = __ifInstance5.exports;
+                                    return __exports.data(this.lastSceneIndex === gShowController.script.numScenes - 1 ? 1 : 0);
+                                })();
+                            }
+                        },
+                        impFunc2: () => {
+                            {
+                                (() => {
+                                    const __ifInstance7 = new WebAssembly.Instance(__ifWasmModule, {
+                                        env: {
+                                            impFunc1: () => {
+                                                {
+                                                    e = true;
+                                                }
+                                            },
+                                            impFunc2: () => {
+                                            }
+                                        }
+                                    });
+                                    const __exports = __ifInstance7.exports;
+                                    return __exports.data(this.lastSceneIndex + 1 === l ? 1 : 0);
+                                })();
+                            }
+                        }
+                    }
+                });
+                const __exports = __ifInstance4.exports;
+                return __exports.data(gShowController.script.loopSlideshow ? 1 : 0);
+            })();
+            if (e) {
+                (() => {
+                    const __ifInstance8 = new WebAssembly.Instance(__ifWasmModule, {
+                        env: {
+                            impFunc1: () => {
+                                {
+                                    (() => {
+                                        const __callInstance6 = new WebAssembly.Instance(__callWasmModule, {
+                                            env: {
+                                                impFunc: () => {
+                                                    gShowController.playCurrentScene();
+                                                }
+                                            }
+                                        });
+                                        const __exports = __callInstance6.exports;
+                                        return __exports.data();
+                                    })();
+                                }
+                            },
+                            impFunc2: () => {
+                                {
+                                    (() => {
+                                        const __ifInstance9 = new WebAssembly.Instance(__ifWasmModule, {
+                                            env: {
+                                                impFunc1: () => {
+                                                    {
+                                                        (() => {
+                                                            const __callInstance5 = new WebAssembly.Instance(__callWasmModule, {
+                                                                env: {
+                                                                    impFunc: () => {
+                                                                        gShowController.jumpToScene(this.lastSceneIndex, true);
+                                                                    }
+                                                                }
+                                                            });
+                                                            const __exports = __callInstance5.exports;
+                                                            return __exports.data();
+                                                        })();
+                                                    }
+                                                },
+                                                impFunc2: () => {
+                                                }
+                                            }
+                                        });
+                                        const __exports = __ifInstance9.exports;
+                                        return __exports.data(gShowController.state === kShowControllerState_IdleAtFinalState ? 1 : 0);
+                                    })();
+                                }
+                            }
+                        }
+                    });
+                    const __exports = __ifInstance8.exports;
+                    return __exports.data(gShowController.state === kShowControllerState_IdleAtInitialState ? 1 : 0);
+                })();
+            } else {
+                var k = gShowController.scriptManager.slideIndexFromSceneIndex(l);
+                var g = this.lastSceneIndex;
+                var j = gShowController.script.events[g].hyperlinks;
+                var m;
+                var f;
+                for (var d = 0, b = j.length; d < b; d++) {
+                    m = j[d];
+                    f = m.events[a.slide];
+                    if (f) {
+                        break;
+                    }
+                }
+                (() => {
+                    const __ifInstance10 = new WebAssembly.Instance(__ifWasmModule, {
+                        env: {
+                            impFunc1: () => {
+                                {
+                                    (() => {
+                                        const __callInstance4 = new WebAssembly.Instance(__callWasmModule, {
+                                            env: {
+                                                impFunc: () => {
+                                                    gShowController.jumpToHyperlinkSlide(k, m);
+                                                }
+                                            }
+                                        });
+                                        const __exports = __callInstance4.exports;
+                                        return __exports.data();
+                                    })();
+                                }
+                            },
+                            impFunc2: () => {
+                                {
+                                    (() => {
+                                        const __callInstance3 = new WebAssembly.Instance(__callWasmModule, {
+                                            env: {
+                                                impFunc: () => {
+                                                    gShowController.jumpToScene(l, false);
+                                                }
+                                            }
+                                        });
+                                        const __exports = __callInstance3.exports;
+                                        return __exports.data();
+                                    })();
+                                }
+                            }
+                        }
+                    });
+                    const __exports = __ifInstance10.exports;
+                    return __exports.data(m ? 1 : 0);
+                })();
+            }
+        } else {
+            (() => {
+                const __ifInstance11 = new WebAssembly.Instance(__ifWasmModule, {
+                    env: {
+                        impFunc1: () => {
+                            {
+                                (() => {
+                                    const __callInstance2 = new WebAssembly.Instance(__callWasmModule, {
+                                        env: {
+                                            impFunc: () => {
+                                                gShowController.jumpToScene(l, false);
+                                            }
+                                        }
+                                    });
+                                    const __exports = __callInstance2.exports;
+                                    return __exports.data();
+                                })();
+                            }
+                        },
+                        impFunc2: () => {
+                        }
+                    }
+                });
+                const __exports = __ifInstance11.exports;
+                return __exports.data(a.animationPhase === lS(0, 10) && h == null ? 1 : 0);
+            })();
+        }
+        var n = this.navigationEvents[this.currentNavigationEventIndex + 1];
+        if (n == null) {
+            return;
+        }
+        var c = n.startTime - a.startTime;
+        (() => {
+            const __callInstance1 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        setTimeout(this.navigate.bind(this, n), c * 1000);
+                    }
+                }
+            });
+            const __exports = __callInstance1.exports;
+            return __exports.data();
+        })();
+        this.lastSceneIndex = l;
+        this.currentNavigationEventIndex = this.currentNavigationEventIndex + 1;
+    },
+    handleCurrentSceneDidComplete: function (a) {
+        (() => {
+            const __callInstance0 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        gShowController.jumpToScene(a, false);
+                    }
+                }
+            });
+            const __exports = __callInstance0.exports;
+            return __exports.data();
+        })();
+    },
+    sceneIndexFromNavigationEvent: function (e) {
+        var c = e.slide;
+        var f = gShowController.script.slideList;
+        var b = -1;
+        for (var a = 0, d = f.length; a < d; a++) {
+            if (f[a] === c) {
+                b = a;
+                break;
+            }
+        }
+        var h = gShowController.scriptManager.sceneIndexFromSlideIndex(b);
+        var g = e.eventIndex + h;
+        return g;
+    },
+    slideIndexFromSlideId: function (b) {
+        var d = gShowController.slideList;
+        var e = -1;
+        for (var a = 0, c = d.length; a < c; a++) {
+            if (d[a] === b) {
+                e = a;
+                break;
+            }
+        }
+        return e;
+    }
+});</code></pre>
+    </body>
+    </html>
+    

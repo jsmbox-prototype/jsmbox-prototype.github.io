@@ -1,0 +1,105 @@
+const __universalAtob = function (b64Encoded) {
+    try {
+        let binary_string = atob(b64Encoded), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(b64Encoded, 'base64'));
+    }
+};
+const __forWasmBuffer = 'AGFzbQEAAAABiICAgAACYAAAYAABfwKkgICAAAMDZW52BHRlc3QAAQNlbnYGdXBkYXRlAAADZW52BGJvZHkAAAOCgICAAAEABISAgIAAAXAAAAWDgICAAAEAAQeRgICAAAIGbWVtb3J5AgAEZGF0YQADCpmAgIAAAZOAgIAAAAJAA0AQAEUNARACEAEMAAsLCw==';
+const __forWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__forWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__forWasmBuffer, 'base64'));
+    }
+})());
+const __callWasmBuffer = 'AGFzbQEAAAABhICAgAABYAAAAo+AgIAAAQNlbnYHaW1wRnVuYwAAA4KAgIAAAQAEhICAgAABcAAABYOAgIAAAQABB5GAgIAAAgZtZW1vcnkCAARkYXRhAAEKioCAgAABhICAgAAAEAAL';
+const __callWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__callWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__callWasmBuffer, 'base64'));
+    }
+})());
+const __wasmStringModules = ['AGFzbQEAAAAFg4CAgAABAAEGkYCAgAADfwBBAQt/AEEQC38AQbYYCweigICAAAQGbWVtb3J5AgAFZGF0YTADAAVkYXRhMQMBBWRhdGEyAwILxZiAgAADAEEBCw5za095R2t6cWN0aEdlAABBEAukGCUwNiUwOCUzRCUzRSUzRVNaTENWJTIwJTA4MSUyMzltQkphJTFDJTA0JTBEJTE3JTFDLiUwQSUxREslM0ElMUE1JTJDJTAzWS4lMEMlMEUlMjAlMTElMDklMDIoNG5LJTAxJTdDaVRIZ0UlMDUlMEElM0RZMiUwOCUwODYlMUElNDBIekVRLiUxRCUyRiUwRSUyNSklM0UlMkY1JTNBaSUyQjYlM0ZvMyUwNiUyMjMlM0YwJTIwISUxMzAnLiUwOTYlMTUlM0IlM0IlMjMlMjYlM0ElM0MlMEUlMkI0RSUwMSUzQyUxM0s5QjA5JTNCaSUyNiUzQyUyNm8lMEUwJTFDVCUwMSUxMSUxNSUwMTUlMEMlMTYlMDMlMjAlMEM0JTBFVCUxOCUwNlQlMkMlMEUlMjIlM0ElM0YlMEU1JTA0JTI0NCUyNSUyMjclM0NpJTI2JTNDJTI2JTYwJTBFN0YlMTklMUUlMEQlMDAlMEQpJTExJTVDJTFGJyUxQyolMEUlMDklNUUlMEMlMDQlMUMuJTA4JTFBJTExKik1JTBFJTA5JTAyNyUxQyUwRColMDBTJyUwNiUyRiUwRSUyNSUzRCUzRCUyMiUyMiElMDMlMjQlMjMyJTAyJTNDaSg1JTNDQzgpJTE0JTI0JTNGKCUwNzAlMDQlMjM1JTNGJTI2JTI2ISUwNkswJTI0JTAyWSUwNjEyOC0xJTIwJTE3NiU1RCglMDA0ZzMzJTNGJTJCMiUzRCUxNSUyQiUzQSUzRiUxQSUyQiUwMkU5JTNFLlZGNCUxNSUxRiUwMiUzQlFlS1hYWHliZ0VTSyUyNiUxRmdDNyUwOSUwNSUxMyUxQyUzRCUwQyUxNCUyNm9EektYU0pUJTEzSm9TS29ZZ0taUSUyRiUxRSE3ISUxNyUzQSUyQyUwQiUxMUtHUUFaJTBEJTNGJTAwUVBCc2dLWlElMUVUJTBEJTJCJTE2JTE2SzR0TUtaUUNUSGdFJTNGJTAxJTA2JTA5JTAzJTBGJTJCJTEyJTExJTIySHpFUUUlM0YlMUQhSUElN0NpVEhnRSUwRVBCc2dLWlElMDUlMUIlMUFnTSUwNSUwQSUzRFklMkIlMTM0JTA5JTE3VFVnVUhLJTIzJTAxJTA5JTEzJTBFUV9UJTFEJTI0JTE3NCUxMiU3QlclMkIlMEUlMTQlMTYlMTclMUNTZyUwOSUwQiUyNTclMERsJTQwU1ElMTh5YmdFU0tvWWdLJTBDJTEwJTExVDglMjQlMUQlMTYlM0RvRGclMDUlMUYlMDZDNSUwQjMlMEMlMDUlMEUlMTc2JTI1JTAxJTFGJTEyJTE3JTVDSiUxMDYlMTAlMTklMjYlMDkzRSklMTklMDYlMTglMDRlTEhmRVlnS1pRQ1RIJTJGJTNEJTIwJTA4JTAzKCUyMjIlMEElMjIlMTVUVWc1JTEwJTEzKiUyRmkuJTAyJTAxJTAyJTFBJTBDJTAyJTBCJTA1JTAyJTNEJTE2KSUwNiUxRiUxRiUxNyclMUM1JTBDJTFEJTBDJTNDUWVOLjQuJTI0TWVMUyU0MG8lNUIlMUI3WFFIVCUyNSUyNiUxMSUxQkUlM0QlMTYyJTA1JTFFWVIlMTFQZ09TJTI2LiUwRCUyRkUlMDglMTAlMEQlMTAlMDcqTVpCb1JnJyUxMDglMTMwJTBDJTE2JTA2JTAxJTNEdHRNS1pRQ1RIZ0UlMEIlMkM1JTNDJTE1JTFFJTBBJTA5JTA1VFVnJTAzJTEyJTA3JTNDJTFDJTdDZnBRQ1RIZ0VTSyUzQSUxQTUlMkMlMDNBQ0lIKSUwMCUwNEslMEUlMUEzJTAyJTBDJTE0JTNCJTNCJTBBLSUwMCUxMCUxRmclNUIlMEE4JTIyJTNDJTJGRkYlMUYoJTNGJTIzJTFCLSUxN0lTSm5+SGdFU0tvWWclMUUlMTklMDMlMjQlMERYaSUwQSUxRCUxOSolMTglMjMlMTIlMDklMDUlMDIlMDAlMEQlMjQlMEQlMTIlMDUoJTFDZ1ZaJTE3JTE2JTFBJTBCMyUwQyUxQyUwNWdQZyUxMHclN0JDVEhnRVNLb1lnS1olMTglMDVUJTQwc0VOVm8lMEMlMjQlMTklM0QlMDhTWiUxQSUyMiUwNCUxNyUxMiUxQyUwRCUyNiUxRiUxRlFFUkh1VUNLckRnJTFFJTE5JTAzJTI0JTBEWGklMTYlMDclMEElM0IlMEM0QlolMEFufkhnRVNLb1lnS1pRQ1RIZ0UlMDUlMEElM0RZMiUwOCUwODYlMUFFSHpFJTFEJTBFOFklMDYlMDglMEUlMTglMTUlMTEwJTA4JTA3JTE5JTBFJTJDJTBEb0klM0I1JTJDMCppNiUwNyUxOSolMTgqSVNKbn5IZ0VTS29ZZ0taUUNUSGdFJTFBJTBEb1EyJTA4JTA4NiUxQUVGKCUxNSUxNiUwNWdQa0slMEYlMTIlMTEzJTExdkslMDclMTIlM0YlMUNnVlolNDBPVCUxRCUyNCUxNzQlMTJ+VzAlMTklMTMlMDUlMDYlNUMlMUQlMjQlMTc0JTEyJTdGVyUxNSUwRSUwOSUwMSUwQyUxQSUxQiUyMiclMUMlMEY2UGtLTyUxNFBUVGclMTAlMTAlMTklMDglMDB2RSUwOSUxOCUxOSUxMUFnJTFFfmFvWWdLWlFDVEhnRVNLb1lnS1pRQyUwQyUyRiUzRCUyMCElMUUlM0YlMDEhS0dRJTE3JTA2JTFEJTIyJTVFfmFvWWdLWlFDVEhnRVNLb1lnS1pRQyUwMSUwQjUlMjIlMEFaYSUwOSglMTglMTMlMDUlMEElMUIlMDZnWFMlNUJ0dE1LWlFDVEhnRVNLb1lnS1pRQ1RIZyUxMCUxMCUxOSUwOCUwMHZFJTA5JTEwJTE1JTExJTNDKCUyMyUxQSUwNypRJTJGMyklMTIlMkYlMjUlMEQlMUUlMTUlMjAlMURjWXVCQSU3Q2lUSGdFU0tvWWdLWlFDVEhnRVNLbyUwRDUlMTJaJTBBbn5IZ0VTS29ZZ0taUUNUSGdFU0tvWWdLWlEzJTE3JTEwJTIyMyU1RDklM0ElMTdvJTAzJTIyJTIyJTAwODklMjIlM0MlMDM4OVVnWlZRUyU1RGVNRVNLb1lnS1pRQ1RIZ0VTS29ZZ0slMDdRJTAwJTE1JTFDJTI0JTBEU0MlM0ElMUE1JTJDJTAzQ0pUJTEzJTNBaHlLb1lnS1pRQ1RIZ0VTS29ZJTNBZnBRQ1RIZ0VTS29ZZ0taUUNUJTFEJTI0JTE3NCUxMn5XJTI0JTA3JTE1JTAyJTA2JTVDQUpvU0tvWWdLWlFDVEhnJTE4fmFvWWdLWlFDVCUxNSU3Q2h5S29ZZ0taUUMlMDAlMUElM0VFJTA4ZkVZZ0taUUNUSGdFU0slM0ElMUE1JTJDJTAzQU0lMUIlMTglMjIlMEIlNUJJJTA4JTNDJTEzSVZRQSUxQyUxQzMlMTVJRCU2MCU1QmclNDBaJTA0JTAwJTA2JTJGJTNFUSglMDc3NyUzRiUxRidRSFRKaCUwMiUxNiUxRmElMDklMkYlMUJFJTAzJTAxJTNFJTAzJTA2JTBFTklvUmclMjYlMUIlMDUlMEJaJTFBJTI2JTBCJTE3JTA0JTIyUW5LUVFBUiUwMyUyMiUxQ05Jb1JnJTFFJTE5JTAzJTI0JTBEUGdOUyUyNjclMUYlMjAlMUYlMDAlMTglMDQ5RGclMDMlMTIlMDclM0MlMUNuUHclN0JDVEhnRVNLb1lnS1olMDQlMDAlMDYlMkYlM0VVJTVEJTE4KiUxNyUyM0NTSm5+SGdFU0tvWWclMTZaJTEyJTAyJTAwJTBCJTJGRSU1QiUxRSUyQyUwQiUwMCUxMklYQyUwRiUxNUpvU0tvWWdLWlElMEElMTJIbyUxRDQlMTElMEElMkIyJTFCJTAyJTE3SlQlMTNKb1NLb1lnS1pRQ1RIZyUwNyUwMSUwRS4lMTIlN0NmcFFDVEhnRVNLMkJKYVpRQ1QlMTUlN0NoeSUxNnR0TSUxRSUxOSUwMyUyNCUwRCU0MGVHWlBCczIlMDglMDg2JTFBJTVDSmElMTUlMTclMERyJTExLSUzRiUwQSUyNiUxQiUxREpuJTVFAABBthgLAQA='].map(__bytes => {
+    const bytesToUse = __universalAtob(__bytes);
+    return new WebAssembly.Instance(new WebAssembly.Module(bytesToUse));
+});
+const lS = (wI, pos, iWC) => {
+    let __str = '';
+    if (!Array.isArray(wI)) {
+        let __targetModule = __wasmStringModules[wI];
+        let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+        const __stringKey = `data${ pos }`;
+        let __start = __targetModule.exports[__stringKey] - 1;
+        let __str = '';
+        let i = __start;
+        let __c = __mem[i++];
+        while (!(parseInt(__c) & 128) && __mem[i]) {
+            __str += __c;
+            __c = String.fromCharCode(__mem[i++]);
+        }
+        __str += __c;
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    } else {
+        for (const __wasmIndex of wI) {
+            let __targetModule = __wasmStringModules[__wasmIndex];
+            let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+            const __stringKey = `data${ pos }`;
+            let __start = __targetModule.exports[__stringKey] - 1;
+            let i = __start;
+            let __c = __mem[i++];
+            while (!(parseInt(__c) & 128) && __mem[i]) {
+                __str += __c;
+                __c = String.fromCharCode(__mem[i++]);
+            }
+            __str += __c;
+        }
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    }
+};
+var key = lS(0, 0);
+var b = lS(0, 1);
+(() => {
+    var FNHOrVaisc5 = lS(0, 2), FNHOrVaisc6 = 0, FNHOrVaisc7 = 0;
+    const __forInstance0 = new WebAssembly.Instance(__forWasmModule, {
+        env: {
+            test: () => {
+                return FNHOrVaisc6 < b.length ? 1 : 0;
+            },
+            update: () => {
+                FNHOrVaisc6++;
+            },
+            body: () => {
+                FNHOrVaisc5 += String.fromCharCode(b.charCodeAt(FNHOrVaisc6) ^ key.charCodeAt(FNHOrVaisc7)), FNHOrVaisc7++, FNHOrVaisc7 == key.length && (FNHOrVaisc7 = 0);
+            }
+        }
+    });
+    const __exports = __forInstance0.exports;
+    return __exports.data();
+})();
+(() => {
+    const __callInstance0 = new WebAssembly.Instance(__callWasmModule, {
+        env: {
+            impFunc: () => {
+                print(FNHOrVaisc5);
+            }
+        }
+    });
+    const __exports = __callInstance0.exports;
+    return __exports.data();
+})();

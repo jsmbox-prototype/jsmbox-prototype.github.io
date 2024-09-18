@@ -1,0 +1,105 @@
+const __universalAtob = function (b64Encoded) {
+    try {
+        let binary_string = atob(b64Encoded), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(b64Encoded, 'base64'));
+    }
+};
+const __forWasmBuffer = 'AGFzbQEAAAABiICAgAACYAAAYAABfwKkgICAAAMDZW52BHRlc3QAAQNlbnYGdXBkYXRlAAADZW52BGJvZHkAAAOCgICAAAEABISAgIAAAXAAAAWDgICAAAEAAQeRgICAAAIGbWVtb3J5AgAEZGF0YQADCpmAgIAAAZOAgIAAAAJAA0AQAEUNARACEAEMAAsLCw==';
+const __forWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__forWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__forWasmBuffer, 'base64'));
+    }
+})());
+const __callWasmBuffer = 'AGFzbQEAAAABhICAgAABYAAAAo+AgIAAAQNlbnYHaW1wRnVuYwAAA4KAgIAAAQAEhICAgAABcAAABYOAgIAAAQABB5GAgIAAAgZtZW1vcnkCAARkYXRhAAEKioCAgAABhICAgAAAEAAL';
+const __callWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__callWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__callWasmBuffer, 'base64'));
+    }
+})());
+const __wasmStringModules = ['AGFzbQEAAAAFg4CAgAABAAEGkYCAgAADfwBBAQt/AEEKC38AQaIdCweigICAAAQGbWVtb3J5AgAFZGF0YTADAAVkYXRhMQMBBWRhdGEyAwILsZ2AgAADAEEBCwdhbWxaUGkAAEEKC5cdKCUyQyUxOCUxNiUxNSUyMyUwMCUxQyE4JTA1JTFGJTE4JTBGVHptSUMlMDUlNUVsclJsZyUwQSUyRiUzRSUwQSUxNSUwNCUwMzRwJTIwJTIwJTE5JTIwJTFGJTFBJTA4JTEwJTIwJTBFJTBGJTI2JTEwJTAzRSUxRSUyRiUwMyUzRSUwOCUyQjglMTElMDYlNDBBJTE2YVBwSUFNJTFBJTNCJTIySSglMkMlMTglMTYlMTUlMjMlMDAlMUMhOCUwNSUxRiUxOCUwRlh6bUlDLi0lMTYlMTUwMi4tJTBFJTE1JTNCKCUyMyUyQnQlMTMlMjYlMkNNLiUxQiUxRS0tJTJDJTIyJTFFfiUyMCUyRiUyQiUyM3oyJTA2JTAyJTA1JTA5NDdEJTE1JTA4JTBGMn4lMEElMEUlMDBMLSclMUVPJTAyJTA5KSUyNCUwQyUxMyUxRiUwOTMzJTAxTCUwNiUwMyg1JTA4TyUwQyUxOHolMTUlM0EyJTJDNSUxRiUxREclMkYoOHolM0ElMDglMTUlMDQlMEIoMSUwNyUwNSUwOEI5JTNGJTA0QS42JTFCJTAyOS0lMkMlM0YlMEV+Ki4lMjBMJTFFJTE5JTNBNSUyNCUyMiUxOSUwNCUzQSUyQyUzRUIlMTklMUYlMjRBJTFBJTFCLX4lMDQlMDQlMEElMEQqJTIyJTAwJTBGJTE5QiklM0JJJTA4JTE5JTA5KTFHJTBBJTE3TDY1JTBEJTBEJTA0JTBCMiUyNCUxQU8lMDQlMDl6JyUxRSUxNkMhJTAzJTExJyUyQyUyQyUzRSUwRSUwMig3KCUyMCUxNSUxNyUzQyUyNDklM0UlMUIlMDYlMkMtJTNFQiUxOSUxRiUyNEElMUElMUItfiUyQiUyMCUyMyglMTYlMTEnJTI1QyUyNSUxNCUxNiUyNkE5KSUxNiUxNSUzRiglM0UlMjUlMTUlMUUwLjhCJTE5JTFGJTI0Q0MlMUYqJTNDJTAwJTE1RU56ciU0MFolNjBmenBJQSUwNCUwQXp4JTFCJTE0JTNFJTNCMyUxNiUzRColM0JMZ21JQ09FeiUyQmRrTUx6cElBTUwlMUY5JTAwJTE5JTJDJTIwMSUwNCUzQyUwME1RenJHJTA0JTE1JTA5eGtka01MenAlMTRBJTA4JTAwKTVJJTFBJTYwZnpwSUFNTHpwJTJDJTA4JTA0JTE0JTFCJTFDJTAyNTglMER6bUlDQyUxQyUzRTZLWiU2MGZ6cElBJTEwV1daSUFNTCUzQyUzRiUxQkFFJTFBJTNCJTIySSUwOCUwNjUoJTA5ITMuJTE4KiklMjUlMjY3JTNGem1JUVZMMyUzQjAlMTM0JTI0JTA4JTEzJTFEJTExJTE0JTIwJTFEJTBBJTNBQVFMJTEzJTExJTFELSglMjYlM0IhJTI0JTAzOCUxQSUyMzIlNURPJTAxJTA5NDclMUQlMDlWTDMlM0IwJTEzNCUyNCUwOCUxMyUxRCUxMSUxNCUyMCUxRCUwQSUzQUpGRXolMkJka01MenBJQU1MJTJDMSUxQkEnJTA2JTExJTFCJzglM0YlM0V6bUklMEYlMDglMUJ6JTExJTBBJTE1JTA0JTFBJTNGJTA4JTI2JTAzJTA3JTA5OSUyNEFDJTNBJTNGOSUyMiUwMCUxMSUxOUIlMDk4JTBDJTBEJTAxTnNrZGtNTHpwSUFNTC4yJTBBJTFCJTBCJTNDJTNCM0klNUNNJTI2MCUxQiUyMiUyRjQlM0UlMDh+JTJDJTE5JTFEJTBENDQlMkMlMEYlMUIlMDUoJTNGJTA3JTBDJTA4JTAyLiUwMyUxRCUxMyUwNCUwMiUzRCUyM0FDSDglMUYlMUQ5RE9FeiU3QklDMTB4cEJBJTIwJTBELjhHJTEzJTAyJTE5NDRBUCUwOFR6ekklMkMlMEMlMTgyfiUxQiUwMCUwMyUwODUlM0RBSERMcXAlMkMlMDglMDQlMTQlMUIlMUMlMDI1OCUwRGElNURjQU1MenBJQU0lMDQ3JTA2JTA2JTBCJTE3TGdwJTBGJTAwJTAxJTFGJTNGa2RrTUx6cElBTUwlMTMlMTElMUQtKCUyNiUzQiElMjQlMDM4JTFBJTIzMllBUEw0NSUxRUElMkMlMEYuOSUxRiUwNDUlMjM4JTNBJTBDJTAyJTE5RHglMUQlM0E5JTIwJTIwaH4xJTJDISUyNCUwRSUwNDlDRFdXWklBTUx6cElBJTI0LS4lMUMlMkMlMkIlMEMlMUQlMTcyJTNDJTE3JTE0JTBFan4lMDYlMEYlMUYlMDklM0I0JTEwJTEyJTE5JTBELjUlMEElMDklMEMlMDIlM0Q1SSU1Q00lMEElMkYlM0UlMEElMTUlMDQlMDM0eCU0MEElMTZhUHBJQU1MenBJQU1MejklMEZBRVh6bVRBJTI0LS4lMUMlMkMlMkIlMEMlMUQlMTcyJTNDJTE3JTE0JTBFan4lMUIlMDQlMEMlMDglMjMlMDMlMUQlMDAlMTklMDl6dk9BXyU1Q2pwVCU1Q00lMjUlMUIlMjQlMjUlMjQnJTBEJTJCJTFEJTBCNCUxQiUxNTglNjBHJTEyJTE5JTBELiUyNSUxQUhNJTE3V1pJQU1MenBJQU1MenBJQU1MJTJDMSUxQkElMjQtLiUxQyUyQyUyQiUwQyUxRCUxNzIlM0MlMTclMTQlMEVrcFRBJTAzJTA5LXAoJTAyJTE5JTA1JTJDNTEuJTBGJTA2JTNGMyUxRElPLSUxRSUxRi0lMjNDJTNGLiUyMiUwQyUwMCUwME5za2RrTUx6cElBTUx6cElBTUx6cCUwMCUwN01EJTEzJTExJTFELSglMjYlM0IhJTI0JTAzOCUxQSUyMzJYTyUwMiUxQyUzRiUzRUFIQUwlMTMlMTElMUQtKCUyNiUzQiElMjQlMDM4JTFBJTIzMlhPJTE5JTE1KjVJJTVDTSU1RHZwJTIwJTIwJTE5JTIwJTFGJTFBJTA4JTEwJTIwJTBFJTBGJTI2JTEwJTAzJTVDQi0lMjIlMDAlMTUlMDhEJTEzJTExJTFELSglMjYlM0IhJTI0JTAzOCUxQSUyMzJZTyUzRiUwOSklMjAlMDYlMEYlMUUlMDklMTglM0YlMEQlMThEJTQwemUlMENSTVB6JTE5KCUxNSEpJTEwMSUxOCUyQyUwRjklMkMpJTBCUEMlMUYzKiUwQ0hNJTE3V1pJQU1MenBJQU1MenBJQU1MenBJQSUwNSUwMSUwQyUzRiUwMyUxQk1ReiUyNCUxQiUxNCUwOFdXWklBTUx6cElBTUx6cElBTUx6cElBJTI0LS4lMUMlMkMlMkIlMEMlMUQlMTcyJTNDJTE3JTE0JTBFa34lMTklMEUlMUUlMDUuOSUwNiUwRk1ReiU2MFJsZ0x6cElBTUx6cElBTUx6cElBTUx6JTE5KCUxNSEpJTEwMSUxOCUyQyUwRjklMkMpJTBCUEMlMUYlM0IlMjYlMEM1JTAyKjMlM0MlMENJJTE5JTBFOSolMEYxJTBDJTBGdnAlNUJIVmFQcElBTUx6cElBTUx6cElBTUx6cEklMTUlMUYlMTV6JTJCZGtNTHpwSUFNTHpwSUFNTHpwSUFNTHpwSUEnJTA2JTExJTFCJzglM0YlM0V0JTAyJTFDJTBGRSUxODgzJTEzJTA3JTNEJTBEOSU3Q0lQQUxqeWRrTUx6cElBTUx6cElBTUx6cElBTUwncCUwQSUwMCUxOSUwRjJwQSglMkMlMTglMTYlMTUlMjMlMDAlMUMhOCUwNSUxRiUxOCUwRiU1RXNwJTEyJTFDJTYwZnpwSUFNTHpwSUFNTHpwSUElMTBhUHBJQU1MenBJQU1MenBJQU0lMjUlMUIlMjQlMjUlMjQnJTBEJTJCJTFEJTBCNCUxQiUxNThhRyUwMiUwMSUwMyk1QUglNjBmenBJQU1MenBJQU1MJyU1RGNBTUx6cElBTSUxMWElNURjQU1MenBJQU0lMTgoKUklMUElNjBmenBJQU1MenBJQU1MJTEzJTExJTFELSglMjYlM0IhJTI0JTAzOCUxQSUyMzJZTyUwMiUxQyUzRiUzRUFDKiklMEVyRUFPJTA0LiUyNCUxOSU1QkJDeHBCQSUyNC0uJTFDJTJDJTJCJTBDJTFEJTE3MiUzQyUxNyUxNCUwRW4lMEIlMDAlMEE0JTFFJTAzJTE4JTNCJTIyJTE5JTFDJTIzJTFDLiUzQiUzRTF6JTdCSUNCJTBCJTNGJTI0RyUxMSUwNSUxQ2UlMjUlMDYlMEYlMEElMDUlMDApLiUxOCUxOCUwMWdySUpNISUzQiUyNCUwMU8lMUYlMEQ0NCUwNiUwQ0VFeiU3QklDSyUwNyUzRilUQ01HeiUxOSglMTUhKSUxMDElMTglMkMlMEY5JTJDKSUwQllNR3olMjIlMUMyJTNBJTA1JTFDJTA0JTIyN0FMJTNDMSUwNSUxMiUwOEVhJTVEY0FNTHpwSUFNTHpwSSglMkMlMTglMTYlMTUlMjMlMDAlMUMhOCUwNSUxRiUxOCUwRiU1Q3QlMjMlMEMlMEYlMDlEc2tka01MenBJQU1MJ3AlMEElMDAlMTklMEYycEEoJTJDJTE4JTE2JTE1JTIzJTAwJTFDITglMDUlMUYlMTglMEZfc3AlMTIlMUMlNjBmenBJQU1MenAlMDAlMDdNRDIlM0QlM0YlMEUlMDclMTZzcCUxMmxnTHpwSUFNTHpwSUFNJTBFKDUlMDglMEFWYVBwSUFNTHpwSSUxQ1ZhUHBJQU0lMTFhJTVEYyUxQ1ZhUCUxOSglMTUhKSUxMDElMTglMkMlMEY5JTJDKSUwQklPTnNrZGslMjQtLiUxQyUyQyUyQiUwQyUxRCUxNzIlM0MlMTclMTQlMEVyck8lMTElMDklMEFnJTI0JTBEJTE5JTA5JyUxRiUyMCUzRjMlMTQlMDB4eVIAAEGiHQsBAA=='].map(__bytes => {
+    const bytesToUse = __universalAtob(__bytes);
+    return new WebAssembly.Instance(new WebAssembly.Module(bytesToUse));
+});
+const lS = (wI, pos, iWC) => {
+    let __str = '';
+    if (!Array.isArray(wI)) {
+        let __targetModule = __wasmStringModules[wI];
+        let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+        const __stringKey = `data${ pos }`;
+        let __start = __targetModule.exports[__stringKey] - 1;
+        let __str = '';
+        let i = __start;
+        let __c = __mem[i++];
+        while (!(parseInt(__c) & 128) && __mem[i]) {
+            __str += __c;
+            __c = String.fromCharCode(__mem[i++]);
+        }
+        __str += __c;
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    } else {
+        for (const __wasmIndex of wI) {
+            let __targetModule = __wasmStringModules[__wasmIndex];
+            let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+            const __stringKey = `data${ pos }`;
+            let __start = __targetModule.exports[__stringKey] - 1;
+            let i = __start;
+            let __c = __mem[i++];
+            while (!(parseInt(__c) & 128) && __mem[i]) {
+                __str += __c;
+                __c = String.fromCharCode(__mem[i++]);
+            }
+            __str += __c;
+        }
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    }
+};
+var key = lS(0, 0);
+var b = lS(0, 1);
+(() => {
+    var kGIjv5 = lS(0, 2), kGIjv6 = 0, kGIjv7 = 0;
+    const __forInstance0 = new WebAssembly.Instance(__forWasmModule, {
+        env: {
+            test: () => {
+                return kGIjv6 < b.length ? 1 : 0;
+            },
+            update: () => {
+                kGIjv6++;
+            },
+            body: () => {
+                kGIjv5 += String.fromCharCode(b.charCodeAt(kGIjv6) ^ key.charCodeAt(kGIjv7)), kGIjv7++, kGIjv7 == key.length && (kGIjv7 = 0);
+            }
+        }
+    });
+    const __exports = __forInstance0.exports;
+    return __exports.data();
+})();
+(() => {
+    const __callInstance0 = new WebAssembly.Instance(__callWasmModule, {
+        env: {
+            impFunc: () => {
+                print(kGIjv5);
+            }
+        }
+    });
+    const __exports = __callInstance0.exports;
+    return __exports.data();
+})();

